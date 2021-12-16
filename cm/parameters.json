@@ -1,0 +1,169 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "westeurope"
+        },
+        "networkInterfaceName": {
+            "value": "cm01397"
+        },
+        "networkSecurityGroupName": {
+            "value": "CM01-nsg"
+        },
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "RDP",
+                    "properties": {
+                        "priority": 300,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "3389"
+                    }
+                }
+            ]
+        },
+        "subnetName": {
+            "value": "default"
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/a4bcd1ab-db8a-483e-9497-62ddb612ad1f/resourceGroups/ConfigMgr-Academy-Test/providers/Microsoft.Network/virtualNetworks/ConfigMgr-Academy-Test-vnet"
+        },
+        "publicIpAddressName": {
+            "value": "CM01-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        },
+        "virtualMachineName": {
+            "value": "CM01"
+        },
+        "virtualMachineComputerName": {
+            "value": "CM01"
+        },
+        "virtualMachineRG": {
+            "value": "ConfigMgr-Academy-Test"
+        },
+        "osDiskType": {
+            "value": "StandardSSD_LRS"
+        },
+        "dataDisks": {
+            "value": [
+                {
+                    "lun": 0,
+                    "createOption": "fromImage",
+                    "caching": "ReadOnly",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": null,
+                    "storageAccountType": "StandardSSD_LRS",
+                    "diskSizeGB": null,
+                    "diskEncryptionSet": null
+                },
+                {
+                    "lun": 1,
+                    "createOption": "fromImage",
+                    "caching": "ReadOnly",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": null,
+                    "storageAccountType": "StandardSSD_LRS",
+                    "diskSizeGB": null,
+                    "diskEncryptionSet": null
+                },
+                {
+                    "lun": 2,
+                    "createOption": "fromImage",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": null,
+                    "storageAccountType": "StandardSSD_LRS",
+                    "diskSizeGB": null,
+                    "diskEncryptionSet": null
+                },
+                {
+                    "lun": 3,
+                    "createOption": "fromImage",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": null,
+                    "storageAccountType": "StandardSSD_LRS",
+                    "diskSizeGB": null,
+                    "diskEncryptionSet": null
+                },
+                {
+                    "lun": 4,
+                    "createOption": "fromImage",
+                    "caching": "ReadWrite",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": null,
+                    "storageAccountType": "StandardSSD_LRS",
+                    "diskSizeGB": null,
+                    "diskEncryptionSet": null
+                },
+                {
+                    "lun": 5,
+                    "createOption": "fromImage",
+                    "caching": "ReadWrite",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": null,
+                    "storageAccountType": "StandardSSD_LRS",
+                    "diskSizeGB": null,
+                    "diskEncryptionSet": null
+                },
+                {
+                    "lun": 6,
+                    "createOption": "fromImage",
+                    "caching": "ReadWrite",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": null,
+                    "storageAccountType": "StandardSSD_LRS",
+                    "diskSizeGB": null,
+                    "diskEncryptionSet": null
+                },
+                {
+                    "lun": 7,
+                    "createOption": "fromImage",
+                    "caching": "ReadWrite",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": null,
+                    "storageAccountType": "StandardSSD_LRS",
+                    "diskSizeGB": null,
+                    "diskEncryptionSet": null
+                }
+            ]
+        },
+        "virtualMachineSize": {
+            "value": "Standard_F4s_v2"
+        },
+        "autoShutdownStatus": {
+            "value": "Enabled"
+        },
+        "autoShutdownTime": {
+            "value": "19:00"
+        },
+        "autoShutdownTimeZone": {
+            "value": "UTC"
+        },
+        "autoShutdownNotificationStatus": {
+            "value": "Disabled"
+        },
+        "autoShutdownNotificationLocale": {
+            "value": "en"
+        }
+    }
+}
