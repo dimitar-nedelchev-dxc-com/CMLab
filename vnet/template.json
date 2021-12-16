@@ -4,6 +4,7 @@
     "parameters": {
         "virtualNetworks_ConfigMgr_Academy_Test_vnet_name": {
             "defaultValue": "ConfigMgr-Academy-Test-vnet",
+            "value": null,
             "type": "String"
         }
     },
