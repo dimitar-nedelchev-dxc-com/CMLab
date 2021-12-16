@@ -12,10 +12,13 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "relativePath": "./vnet/template.json",
+                    "uri": "https://raw.githubusercontent.com/dimitar-nedelchev-dxc-com/CMLab/main/vnet/template.json",
                     "contentVersion": "1.0.0.0"
                 },
-                "parameters": {}
+                "parametersLink": {
+                    "uri": "https://raw.githubusercontent.com/dimitar-nedelchev-dxc-com/CMLab/main/vnet/parameters.json",
+                    "contentVersion": "1.0.0.0"
+                }
             }
         },
         {
@@ -26,7 +29,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "relativePath": "dc/template.json",
+                    "uri": "https://raw.githubusercontent.com/dimitar-nedelchev-dxc-com/CMLab/main/dc/template.json",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -112,7 +115,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "relativePath": "cm/template.json",
+                    "uri": "https://raw.githubusercontent.com/dimitar-nedelchev-dxc-com/CMLab/main/cm/template.json",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
