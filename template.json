@@ -15,9 +15,11 @@
                     "uri": "https://raw.githubusercontent.com/dimitar-nedelchev-dxc-com/CMLab/main/vnet/template.json",
                     "contentVersion": "1.0.0.0"
                 },
-                "parametersLink": {
-                    "uri": "https://raw.githubusercontent.com/dimitar-nedelchev-dxc-com/CMLab/main/vnet/parameters.json",
-                    "contentVersion": "1.0.0.0"
+                "parameters": {
+                    "virtualNetworks_ConfigMgr_Academy_Test_vnet_name": {
+                        "defaultValue": "ConfigMgr-Academy-Test-vnet",
+                        "type": "String"
+                    }
                 }
             }
         },
@@ -111,7 +113,7 @@
             "name": "linkedDeployment_CM",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2021-04-01",
-            "dependsOn": ["[resourceId('Microsoft.Resources/deployments', 'linkedDeployment_DC')]"],
+            "dependsOn": [ "[resourceId('Microsoft.Resources/deployments', 'linkedDeployment_DC')]" ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
