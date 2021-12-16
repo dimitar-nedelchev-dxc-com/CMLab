@@ -15,12 +15,7 @@
                     "uri": "https://raw.githubusercontent.com/dimitar-nedelchev-dxc-com/CMLab/main/vnet/template.json",
                     "contentVersion": "1.0.0.0"
                 },
-                "parameters": {
-                    "virtualNetworks_ConfigMgr_Academy_Test_vnet_name": {
-                        "value": "ConfigMgr-Academy-Test-vnet",
-                        "type": "String"
-                    }
-                }
+                "parameters": {}
             }
         },
         {
