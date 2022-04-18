@@ -2,8 +2,8 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "virtualNetworks_ConfigMgr_Academy_Test_vnet_name": {
-            "defaultValue": "ConfigMgr-Academy-Test-vnet",
+        "vnetName": {
+            "defaultValue": "ConfigMgr-Academy-Lab-vnet",
             "value": null,
             "type": "String"
         }
@@ -13,7 +13,7 @@
         {
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2020-11-01",
-            "name": "[parameters('virtualNetworks_ConfigMgr_Academy_Test_vnet_name')]",
+            "name": "[parameters('vnetName')]",
             "location": "westeurope",
             "properties": {
                 "addressSpace": {
@@ -45,9 +45,9 @@
         {
             "type": "Microsoft.Network/virtualNetworks/subnets",
             "apiVersion": "2020-11-01",
-            "name": "[concat(parameters('virtualNetworks_ConfigMgr_Academy_Test_vnet_name'), '/default')]",
+            "name": "[concat(parameters('vnetName'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_ConfigMgr_Academy_Test_vnet_name'))]"
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]"
             ],
             "properties": {
                 "addressPrefix": "10.3.0.0/24",
@@ -57,5 +57,6 @@
                 "privateLinkServiceNetworkPolicies": "Enabled"
             }
         }
-    ]
+    ],
+    "outputs": {}
 }
