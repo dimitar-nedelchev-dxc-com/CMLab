@@ -4,9 +4,6 @@
     "parameters": {
         "gitBranch": {
             "value": "refactor/parameter-files"
-        },
-        "location": {
-            "value": "westeurope"
         }
     }
 }
