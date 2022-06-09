@@ -69,7 +69,7 @@
                         "value": "default"
                     },
                     "virtualNetworkId": {
-                        "value": "[reference('linkedDeployment_VNet').outputs.resourceId.value]"
+                        "value": "[reference('linkedDeployment_VNet').outputs.vnetId.value]"
                     },
                     "publicIpAddressName": {
                         "value": "DC01-ip"
@@ -155,7 +155,7 @@
                         "value": "default"
                     },
                     "virtualNetworkId": {
-                        "value": "[reference('linkedDeployment_VNet').outputs.resourceId.value]"
+                        "value": "[reference('linkedDeployment_VNet').outputs.vnetId.value]"
                     },
                     "publicIpAddressName": {
                         "value": "CM01-ip"
