@@ -1,4 +1,4 @@
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdimitar-nedelchev-dxc-com%2FCMLab%2Fmain%2Ftemplate.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdimitar-nedelchev-dxc-com%2FCMLab%2Frefactor%2Fparameter-files%2Ftemplate.json)
 
 > **:warning:** **CAUTION:**
 > Never deploy the template more than once in the same resource group before cleaning up, to avoid resource name collision.
