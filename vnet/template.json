@@ -6,10 +6,6 @@
             "defaultValue": "ConfigMgr-Academy-Test-vnet",
             "value": null,
             "type": "String"
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]"
         }
     },
     "variables": {},
@@ -18,7 +14,7 @@
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2020-11-01",
             "name": "[parameters('vnetName')]",
-            "location": "[parameters('location')]",
+            "location": "[resourceGroup().location]",
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
