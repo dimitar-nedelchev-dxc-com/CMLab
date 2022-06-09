@@ -60,7 +60,7 @@
                         "value": "default"
                     },
                     "virtualNetworkId": {
-                        "value": "/subscriptions/a4bcd1ab-db8a-483e-9497-62ddb612ad1f/resourceGroups/ConfigMgr-Academy-Test/providers/Microsoft.Network/virtualNetworks/ConfigMgr-Academy-Test-vnet"
+                        "value": "[reference('linkedDeployment_VNet').outputs.resourceId.value]"
                     },
                     "publicIpAddressName": {
                         "value": "DC01-ip"
@@ -146,7 +146,7 @@
                         "value": "default"
                     },
                     "virtualNetworkId": {
-                        "value": "/subscriptions/a4bcd1ab-db8a-483e-9497-62ddb612ad1f/resourceGroups/ConfigMgr-Academy-Test/providers/Microsoft.Network/virtualNetworks/ConfigMgr-Academy-Test-vnet"
+                        "value": "[reference('linkedDeployment_VNet').outputs.resourceId.value]"
                     },
                     "publicIpAddressName": {
                         "value": "CM01-ip"
