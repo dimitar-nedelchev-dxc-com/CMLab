@@ -20,9 +20,10 @@
                     "uri": "[concat('https://raw.githubusercontent.com/dimitar-nedelchev-dxc-com/CMLab/', parameters('gitBranch'), '/vnet/template.json')]",
                     "contentVersion": "1.0.0.0"
                 },
-                "parametersLink": {
-                    "uri": "[concat('https://raw.githubusercontent.com/dimitar-nedelchev-dxc-com/CMLab/', parameters('gitBranch'), '/vnet/parameters.json')]",
-                    "contentVersion": "1.0.0.0"
+                "parameters": {
+                    "vnetName": {
+                        "value": "ConfigMgr-Academy-Test-vnet"
+                    }
                 }
             }
         },
