@@ -1,0 +1,102 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "extensions_CustomScriptExtension_commandToExecute": {
+            "type": "SecureString"
+        },
+        "virtualMachines_Client01_name": {
+            "defaultValue": "Client01",
+            "type": "String"
+        },
+        "disks_Client01_OsDisk_1_5c7cd606c3aa47ebae1d386918123f2b_externalid": {
+            "defaultValue": "/subscriptions/3e2f9610-175e-404a-a28c-61fe81ea04a6/resourceGroups/ARM-Templates-Test/providers/Microsoft.Compute/disks/Client01_OsDisk_1_5c7cd606c3aa47ebae1d386918123f2b",
+            "type": "String"
+        },
+        "networkInterfaces_client0145_externalid": {
+            "defaultValue": "/subscriptions/3e2f9610-175e-404a-a28c-61fe81ea04a6/resourceGroups/ARM-Templates-Test/providers/Microsoft.Network/networkInterfaces/client0145",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2022-03-01",
+            "name": "[parameters('virtualMachines_Client01_name')]",
+            "location": "westeurope",
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_B2s"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "MicrosoftWindowsDesktop",
+                        "offer": "Windows-10",
+                        "sku": "win10-21h2-ent-g2",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Windows",
+                        "name": "[concat(parameters('virtualMachines_Client01_name'), '_OsDisk_1_5c7cd606c3aa47ebae1d386918123f2b')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "storageAccountType": "Standard_LRS",
+                            "id": "[parameters('disks_Client01_OsDisk_1_5c7cd606c3aa47ebae1d386918123f2b_externalid')]"
+                        },
+                        "deleteOption": "Delete",
+                        "diskSizeGB": 127
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_Client01_name')]",
+                    "adminUsername": "azureuser",
+                    "windowsConfiguration": {
+                        "provisionVMAgent": true,
+                        "enableAutomaticUpdates": false,
+                        "patchSettings": {
+                            "patchMode": "Manual",
+                            "assessmentMode": "ImageDefault",
+                            "enableHotpatching": false
+                        }
+                    },
+                    "secrets": [],
+                    "allowExtensionOperations": true,
+                    "requireGuestProvisionSignal": true
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[parameters('networkInterfaces_client0145_externalid')]",
+                            "properties": {
+                                "deleteOption": "Detach"
+                            }
+                        }
+                    ]
+                },
+                "licenseType": "Windows_Client"
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "apiVersion": "2022-03-01",
+            "name": "[concat(parameters('virtualMachines_Client01_name'), '/CustomScriptExtension')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_Client01_name'))]"
+            ],
+            "properties": {
+                "autoUpgradeMinorVersion": true,
+                "publisher": "Microsoft.Compute",
+                "type": "CustomScriptExtension",
+                "typeHandlerVersion": "1.9",
+                "settings": {
+                    "commandToExecute": "[parameters('extensions_CustomScriptExtension_commandToExecute')]"
+                },
+                "protectedSettings": {}
+            }
+        }
+    ]
+}
