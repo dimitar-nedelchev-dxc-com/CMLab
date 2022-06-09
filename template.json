@@ -22,7 +22,7 @@
                 },
                 "parameters": {
                     "vnetName": {
-                        "value": "ConfigMgr-Academy-Test-vnet"
+                        "value": "ConfigMgr-Academy-vnet"
                     }
                 }
             }
