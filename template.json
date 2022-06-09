@@ -1,7 +1,16 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {},
+    "parameters": {
+        "gitBranch": {
+            "type": "string",
+            "defaultValue": "refactor/parameter-files"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "westeurope"
+        }
+    },
     "functions": [],
     "variables": {},
     "resources": [
@@ -12,10 +21,13 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "https://raw.githubusercontent.com/dimitar-nedelchev-dxc-com/CMLab/main/vnet/template.json",
+                    "uri": "[concat('https://raw.githubusercontent.com/dimitar-nedelchev-dxc-com/CMLab/', parameters('gitBranch'), '/vnet/template.json')]",
                     "contentVersion": "1.0.0.0"
                 },
-                "parameters": {}
+                "parametersLink": {
+                    "uri": "[concat('https://raw.githubusercontent.com/dimitar-nedelchev-dxc-com/CMLab/', parameters('gitBranch'), '/vnet/parameters.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
             }
         },
         {
@@ -26,81 +38,12 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "https://raw.githubusercontent.com/dimitar-nedelchev-dxc-com/CMLab/main/dc/template.json",
+                    "uri": "[concat('https://raw.githubusercontent.com/dimitar-nedelchev-dxc-com/CMLab/', parameters('gitBranch'), '/dc/template.json')]",
                     "contentVersion": "1.0.0.0"
                 },
-                "parameters": {
-                    "location": {
-                        "value": "westeurope"
-                    },
-                    "networkInterfaceName": {
-                        "value": "dc01767"
-                    },
-                    "networkSecurityGroupName": {
-                        "value": "DC01-nsg"
-                    },
-                    "networkSecurityGroupRules": {
-                        "value": [
-                            {
-                                "name": "RDP",
-                                "properties": {
-                                    "priority": 300,
-                                    "protocol": "TCP",
-                                    "access": "Allow",
-                                    "direction": "Inbound",
-                                    "sourceAddressPrefix": "*",
-                                    "sourcePortRange": "*",
-                                    "destinationAddressPrefix": "*",
-                                    "destinationPortRange": "3389"
-                                }
-                            }
-                        ]
-                    },
-                    "subnetName": {
-                        "value": "default"
-                    },
-                    "virtualNetworkId": {
-                        "value": "[reference('linkedDeployment_VNet').outputs.resourceId.value]"
-                    },
-                    "publicIpAddressName": {
-                        "value": "DC01-ip"
-                    },
-                    "publicIpAddressType": {
-                        "value": "Dynamic"
-                    },
-                    "publicIpAddressSku": {
-                        "value": "Basic"
-                    },
-                    "virtualMachineName": {
-                        "value": "DC01"
-                    },
-                    "virtualMachineComputerName": {
-                        "value": "DC01"
-                    },
-                    "virtualMachineRG": {
-                        "value": "ConfigMgr-Academy-Test"
-                    },
-                    "osDiskType": {
-                        "value": "StandardSSD_LRS"
-                    },
-                    "virtualMachineSize": {
-                        "value": "Standard_B2s"
-                    },
-                    "autoShutdownStatus": {
-                        "value": "Enabled"
-                    },
-                    "autoShutdownTime": {
-                        "value": "19:00"
-                    },
-                    "autoShutdownTimeZone": {
-                        "value": "UTC"
-                    },
-                    "autoShutdownNotificationStatus": {
-                        "value": "Disabled"
-                    },
-                    "autoShutdownNotificationLocale": {
-                        "value": "en"
-                    }
+                "parametersLink": {
+                    "uri": "[concat('https://raw.githubusercontent.com/dimitar-nedelchev-dxc-com/CMLab/', parameters('gitBranch'), '/dc/parameters.json')]",
+                    "contentVersion": "1.0.0.0"
                 }
             }
         },
@@ -112,12 +55,16 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "https://raw.githubusercontent.com/dimitar-nedelchev-dxc-com/CMLab/main/cm/template.json",
+                    "uri": "[concat('https://raw.githubusercontent.com/dimitar-nedelchev-dxc-com/CMLab/', parameters('gitBranch'), '/cm/template.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parametersLink": {
+                    "uri": "[concat('https://raw.githubusercontent.com/dimitar-nedelchev-dxc-com/CMLab/', parameters('gitBranch'), '/cm/parameters.json')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
                     "location": {
-                        "value": "westeurope"
+                        "value": "[parameters('location')]"
                     },
                     "networkInterfaceName": {
                         "value": "cm01397"

@@ -32,7 +32,7 @@
             "value": "default"
         },
         "virtualNetworkId": {
-            "value": "/subscriptions/a4bcd1ab-db8a-483e-9497-62ddb612ad1f/resourceGroups/ConfigMgr-Academy-Test/providers/Microsoft.Network/virtualNetworks/ConfigMgr-Academy-Test-vnet"
+            "value": null
         },
         "publicIpAddressName": {
             "value": "DC01-ip"
