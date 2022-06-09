@@ -93,7 +93,9 @@
                 "type": "CustomScriptExtension",
                 "typeHandlerVersion": "1.9",
                 "settings": {
-                    "commandToExecute": "[parameters('extensions_CustomScriptExtension_commandToExecute')]"
+                    // "commandToExecute": "[parameters('extensions_CustomScriptExtension_commandToExecute')]"
+                    "FileUris": ["https://raw.githubusercontent.com/dimitar-nedelchev-dxc-com/CMLab/refactor/parameter-files/scripts/Install-CCMAgent.ps1"],
+                    "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File Install-CCMAgent.ps1 LAB CM01.ConfigMgr.lab"
                 },
                 "protectedSettings": {}
             }
